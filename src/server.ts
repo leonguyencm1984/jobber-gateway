@@ -13,6 +13,7 @@ import { StatusCodes } from 'http-status-codes';
 import { config } from '@gateway/config';
 
 import { elasticSearch } from '@gateway/elasticsearch';
+import { appRoutes } from '@gateway/routes';
 
 const SERVER_PORT = 4000;
 
@@ -63,7 +64,8 @@ export class GatewayServer {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-  private routesMiddleware(_app: Application): void {
+  private routesMiddleware(app: Application): void {
+    appRoutes(app);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
